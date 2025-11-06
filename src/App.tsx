@@ -1,6 +1,8 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import { Button } from "./components/ui/button"
+import LandingPage from "./pages/LandingPage"
 
-function App() {
+function DesignSystem() {
   return (
     <div className="min-h-screen p-8 bg-00">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -231,6 +233,25 @@ function App() {
 
       </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <nav className="fixed top-4 left-4 z-50 space-x-2">
+        <Link to="/">
+          <Button variant="secondary" size="sm">Landing</Button>
+        </Link>
+        <Link to="/design">
+          <Button variant="secondary" size="sm">Design System</Button>
+        </Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/design" element={<DesignSystem />} />
+      </Routes>
+    </Router>
   )
 }
 
